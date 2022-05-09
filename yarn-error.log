@@ -1,0 +1,36 @@
+Arguments: 
+  /home/daniel/.asdf/installs/nodejs/16.14.0/bin/node /home/daniel/.asdf/installs/yarn/1.22.17/bin/yarn.js init -u
+
+PATH: 
+  /home/daniel/.asdf/installs/nodejs/16.14.0/.npm/bin:/home/daniel/.asdf/installs/nodejs/16.14.0/bin:/home/daniel/.asdf/installs/yarn/1.22.17/bin:/home/daniel/.pyenv/versions/3.7.2/bin:/home/daniel/.zinit/polaris/bin:/home/daniel/.asdf/shims:/home/daniel/.asdf/bin:/home/daniel/.ebcli-virtual-env/executables:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/usr/lib/wsl/lib:/mnt/c/Windows/system32:/mnt/c/Windows:/mnt/c/Windows/System32/Wbem:/mnt/c/Windows/System32/WindowsPowerShell/v1.0/:/mnt/c/Windows/System32/OpenSSH/:/mnt/c/Program Files (x86)/NVIDIA Corporation/PhysX/Common:/mnt/c/Program Files/NVIDIA Corporation/NVIDIA NvDLISR:/mnt/c/WINDOWS/system32:/mnt/c/WINDOWS:/mnt/c/WINDOWS/System32/Wbem:/mnt/c/WINDOWS/System32/WindowsPowerShell/v1.0/:/mnt/c/WINDOWS/System32/OpenSSH/:/mnt/c/Program Files/dotnet/:/mnt/c/Program Files/PowerShell/7/:/mnt/c/Program Files/Docker/Docker/resources/bin:/mnt/c/ProgramData/DockerDesktop/version-bin:/mnt/c/Users/Daniel/AppData/Local/Microsoft/WindowsApps:/mnt/c/Users/Daniel/AppData/Local/Programs/Microsoft VS Code/bin:/mnt/c/Users/Daniel/AppData/Local/gitkraken/bin:/mnt/c/Users/Daniel/AppData/Local/Microsoft/WindowsApps:/mnt/c/Program Files/Hyper/resources/bin
+
+Yarn version: 
+  1.22.17
+
+Node version: 
+  16.14.0
+
+Platform: 
+  linux x64
+
+Trace: 
+  Error: canceled
+      at Interface.<anonymous> (/home/daniel/.asdf/installs/yarn/1.22.17/lib/cli.js:137143:13)
+      at Interface.emit (node:events:520:28)
+      at Interface._ttyWrite (node:readline:1081:16)
+      at ReadStream.onkeypress (node:readline:288:10)
+      at ReadStream.emit (node:events:520:28)
+      at emitKeys (node:internal/readline/utils:358:14)
+      at emitKeys.next (<anonymous>)
+      at ReadStream.onData (node:internal/readline/emitKeypressEvents:61:36)
+      at ReadStream.emit (node:events:520:28)
+      at addChunk (node:internal/streams/readable:315:12)
+
+npm manifest: 
+  No manifest
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile
