@@ -5,13 +5,16 @@ import type {
 } from "next";
 
 import { Header } from "@components/header";
-import { ProductCard } from "@components/productCard";
 import { Footer } from "@components/footer";
+import { Products } from "@components/products";
+import { Paginate } from "@components/paginate";
 
-import styles from "@assets/styles/home.module.css";
+export const getServerSideProps: GetServerSideProps = async ({ query }) => {
+  const { page = 1 } = query;
 
-export const getServerSideProps: GetServerSideProps = async () => {
-  const products = await fetch("http://localhost:3000/api/products")
+  const response = await fetch(
+    `${process.env.base_api_url}/products?page=${page}`
+  )
     .then((res) => res.json())
     .then((data) => {
       return data;
@@ -19,25 +22,34 @@ export const getServerSideProps: GetServerSideProps = async () => {
 
   return {
     props: {
-      products: products.data || [],
+      page,
+      perPage: response.perPage,
+      total: response.total,
+      products: response.data || [],
     },
   };
 };
 
 const IndexPage: NextPage = ({
   products,
-}: InferGetServerSidePropsType<typeof getServerSideProps>) => (
-  <main>
-    <Header />
+  page,
+  perPage,
+  total,
+}: InferGetServerSidePropsType<typeof getServerSideProps>) => {
+  const totalPages = Math.ceil(total / perPage);
 
-    <section className={styles.productList}>
-      {products?.map((product) => (
-        <ProductCard key={product.uuid} product={product} />
-      ))}
-    </section>
+  return (
+    <main>
+      <Header />
 
-    <Footer />
-  </main>
-);
+      <section>
+        <Products products={products} />
+        <Paginate actualPage={page} totalPages={totalPages} />
+      </section>
+
+      <Footer />
+    </main>
+  );
+};
 
 export default IndexPage;

@@ -4,13 +4,13 @@ import Image from "next/image";
 import { Item } from "@types";
 import { formatMoney, formatPercentage } from "@utils/format";
 
-import styles from "./productCard.module.css";
+import styles from "./product.module.css";
 
-export interface ProductCardProps {
+export interface ProductProps {
   product: Item;
 }
 
-export const ProductCard = ({ product }: ProductCardProps) => {
+export const Product = ({ product }: ProductProps) => {
   const [productImage, setProductImage] = useState(product.image);
   const [productSelectedPack, setProductSelectedPack] = useState(1);
 

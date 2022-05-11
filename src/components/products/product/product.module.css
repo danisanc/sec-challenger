@@ -102,4 +102,5 @@
 
 .product__add_to_cart:hover {
   background-color: #150e6f;
+  border: 1px solid #150e6f;
 }

@@ -1,4 +1,4 @@
-.productList {
+.products {
   display: grid;
   gap: 16px;
   grid-template-columns: repeat(1, minmax(0, 1fr));
@@ -9,7 +9,7 @@
 }
 
 @media screen and (min-width: 768px) {
-  .productList {
+  .products {
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 }
