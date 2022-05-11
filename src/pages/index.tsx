@@ -1,90 +1,43 @@
-import type { NextPage } from "next";
-import { useEffect, useState } from "react";
+import type {
+  GetServerSideProps,
+  InferGetServerSidePropsType,
+  NextPage,
+} from "next";
 
-const IndexPage: NextPage = () => {
-  const [data, setData] = useState(null);
-  const [isLoading, setLoading] = useState(false);
+import { Header } from "@components/header";
+import { ProductCard } from "@components/productCard";
+import { Footer } from "@components/footer";
 
-  useEffect(() => {
-    setLoading(true);
+import styles from "@assets/styles/home.module.css";
 
-    fetch("api/products")
-      .then((res) => res.json())
-      .then((data) => {
-        setData(data);
-        setLoading(false);
-      });
-  }, []);
+export const getServerSideProps: GetServerSideProps = async () => {
+  const products = await fetch("http://localhost:3000/api/products")
+    .then((res) => res.json())
+    .then((data) => {
+      return data;
+    });
 
-  if (isLoading) return <p>Loading...</p>;
-  if (!data) return <p>No profile data</p>;
-
-  console.log(data.data);
-
-  return (
-    <>
-      <header>
-        <h1>Sempre em casa</h1>
-
-        <nav>
-          <ul>
-            <li>Carrinho</li>
-          </ul>
-        </nav>
-      </header>
-
-      <main>
-        {data?.data?.map((product) => {
-          console.log(product.vendors[0].vendor.name);
-
-          return (
-            <article key={product.uuid}>
-              <img src={product.image} alt={product.name} />
-
-              <div>
-                <p>{product.vendors[0].vendor.name}</p>
-                <p>{product.name}</p>
-              </div>
-
-              <div>
-                <p>Escolha o pack</p>
-
-                {product?.packs?.map((pack) => {
-                  return (
-                    <li key={pack.id}>
-                      <span>{pack.unities}</span> unid.
-                    </li>
-                  );
-                })}
-                <ul></ul>
-              </div>
-
-              <div>
-                <p>
-                  desc: <span>22%</span>
-                </p>
-
-                <p>
-                  de: <span>R$ 68,70</span>
-                </p>
-
-                <p>
-                  por: <span>R$ 53,70</span>
-                </p>
-              </div>
-
-              <div>
-                <p>a unidade sai por</p>
-                <p>R$ 1,79</p>
-              </div>
-
-              <button>Adicionar ao carrinho</button>
-            </article>
-          );
-        })}
-      </main>
-    </>
-  );
+  return {
+    props: {
+      products: products.data || [],
+    },
+  };
 };
+
+const IndexPage: NextPage = ({
+  products,
+}: InferGetServerSidePropsType<typeof getServerSideProps>) => (
+  <main>
+    <Header />
+
+    <section className={styles.productList}>
+      {products?.map((product) => (
+        <ProductCard key={product.uuid} product={product} />
+      ))}
+    </section>
+
+    <Footer />
+  </main>
+);
 
 export default IndexPage;
