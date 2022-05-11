@@ -5,9 +5,6 @@ export const formatMoney = (number) => {
   }).format(number);
 };
 
-export const formatPercentage = (original_price, current_price) => {
-  return `${(
-    ((current_price - original_price) / original_price) *
-    100
-  ).toFixed()}%`;
+export const formatPercentage = (percentage) => {
+  return `- ${percentage.toFixed()}%`;
 };

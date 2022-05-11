@@ -1,8 +1,16 @@
 .product {
+  box-shadow: 0px 0px 8px #999999;
+  padding: 16px;
   position: relative;
   width: 100%;
-  padding: 16px;
-  box-shadow: 0px 0px 8px #999999;
+}
+
+.product__discount_tag {
+  background-color: #f7c96d;
+  padding: 4px 8px;
+  position: absolute;
+  right: 16px;
+  top: 16px;
 }
 
 .product__image {
@@ -14,8 +22,8 @@
 .product__name {
   border-left: 8px solid #f7c96d;
   font-size: 14px;
-  padding: 0px 8px;
   margin-bottom: 16px;
+  padding: 0px 8px;
 }
 
 .product__name p {
@@ -26,13 +34,13 @@
 
 .product__packs {
   background-color: rgba(53, 120, 245, 0.2);
-  padding: 16px;
   margin-bottom: 16px;
+  padding: 16px;
 }
 
 .product__packs > p {
-  text-align: center;
   margin-bottom: 8px;
+  text-align: center;
 }
 
 .product__packs ul {
