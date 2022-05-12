@@ -13,8 +13,8 @@ export const getServerSideProps: GetServerSideProps = async ({ query }) => {
   const { page = 1 } = query;
 
   const response = await fetch(
-    `${
-      process.env.NEXT_PUBLIC_VERCEL_URL || process.env.NEXT_PUBLIC_BASE_URL
+    `http://${
+      process.env.VERCEL_URL || process.env.BASE_URL
     }/api/products?page=${page}`
   )
     .then((res) => res.json())
