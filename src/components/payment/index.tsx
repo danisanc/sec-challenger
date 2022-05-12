@@ -24,7 +24,7 @@ export const Payment = () => {
       </p>
 
       <Link
-        href="https://i.giphy.com/media/3oz8xDLuiN1GcDA3xC/giphy.webp"
+        href="https://i.giphy.com/media/3oz8xDLuiN1GcDA3xC/giphy.gif"
         passHref
       >
         <button className={styles.finish_button}>Finalizar compra</button>
