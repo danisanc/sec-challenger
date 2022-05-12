@@ -45,3 +45,9 @@ export type Item = {
   packs: Pack[];
   stock: string;
 };
+
+export type CartItem = {
+  item: Item;
+  pack: number;
+  quantity: number;
+};
