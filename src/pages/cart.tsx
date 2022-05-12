@@ -9,16 +9,18 @@ import { Payment } from "@components/payment";
 import { Empty } from "@components/empty";
 
 const CartPage: NextPage = () => {
-  const cartItems = useSelector((state: RootState) => state.cartReducer.items);
+  const cartItemsLength = useSelector(
+    (state: RootState) => state.cartReducer.items.length
+  );
 
   return (
     <main>
       <Header />
 
       <section>
-        {cartItems.length > 0 ? (
+        {cartItemsLength > 0 ? (
           <>
-            <Products products={cartItems} />
+            <Products />
             <Payment />
           </>
         ) : (

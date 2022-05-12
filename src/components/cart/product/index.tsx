@@ -1,6 +1,6 @@
+import { useDispatch } from "react-redux";
 import { useState } from "react";
 import Image from "next/image";
-import { useDispatch } from "react-redux";
 
 import { formatMoney } from "@utils/format";
 import { CartItem } from "@types";
@@ -43,7 +43,7 @@ export const Product = ({ product }: ProductProps) => {
         <div className={styles.product__name}>
           <b>{product.item.vendors[0].vendor.name}</b>
           <p title={product.item.name}>{product.item.name}</p>
-          <p title={product.item.name}>
+          <p>
             Pack com <b>{product.item.packs[product.pack].unities}</b> unidades
           </p>
         </div>
