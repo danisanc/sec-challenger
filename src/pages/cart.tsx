@@ -7,6 +7,7 @@ import { RootState } from "@store/index";
 import { Products } from "@components/cart";
 import { Payment } from "@components/payment";
 import { Empty } from "@components/empty";
+import Head from "next/head";
 
 const CartPage: NextPage = () => {
   const cartItemsLength = useSelector(
@@ -14,22 +15,28 @@ const CartPage: NextPage = () => {
   );
 
   return (
-    <main>
-      <Header />
+    <>
+      <Head>
+        <title>Carrinho ({cartItemsLength}) - Sempre em casa</title>
+      </Head>
 
-      <section>
-        {cartItemsLength > 0 ? (
-          <>
-            <Products />
-            <Payment />
-          </>
-        ) : (
-          <Empty />
-        )}
-      </section>
+      <main>
+        <Header />
 
-      <Footer />
-    </main>
+        <section>
+          {cartItemsLength > 0 ? (
+            <>
+              <Products />
+              <Payment />
+            </>
+          ) : (
+            <Empty />
+          )}
+        </section>
+
+        <Footer />
+      </main>
+    </>
   );
 };
 

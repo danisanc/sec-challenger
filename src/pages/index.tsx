@@ -8,6 +8,7 @@ import { Header } from "@components/header";
 import { Footer } from "@components/footer";
 import { Products } from "@components/products";
 import { Paginate } from "@components/paginate";
+import Head from "next/head";
 
 export const getServerSideProps: GetServerSideProps = async ({ query }) => {
   const { page = 1 } = query;
@@ -41,16 +42,22 @@ const IndexPage: NextPage = ({
   const totalPages = Math.ceil(total / perPage);
 
   return (
-    <main>
-      <Header />
+    <>
+      <Head>
+        <title>Sempre em casa</title>
+      </Head>
 
-      <section>
-        <Products products={products} />
-        <Paginate actualPage={page} totalPages={totalPages} />
-      </section>
+      <main>
+        <Header />
 
-      <Footer />
-    </main>
+        <section>
+          <Products products={products} />
+          <Paginate actualPage={page} totalPages={totalPages} />
+        </section>
+
+        <Footer />
+      </main>
+    </>
   );
 };
 
