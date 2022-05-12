@@ -79,22 +79,22 @@
   font-size: 0.7rem;
 }
 
-.product__packs_price {
+.product__price {
   display: flex;
   flex-direction: column;
   gap: 8px;
   margin-bottom: 16px;
 }
 
-.product__packs_price p b {
+.product__price p b {
   margin-left: 4px;
 }
 
-.product__packs_price p[data-type="discount"] b {
+.product__price p[data-type="discount"] b {
   color: red;
 }
 
-.product__packs_price p[data-type="new-price"] b {
+.product__price p[data-type="new-price"] b {
   color: rgb(53, 120, 245);
 }
 

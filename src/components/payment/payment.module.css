@@ -1,0 +1,26 @@
+.container {
+  align-items: flex-end;
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  max-width: 1024px;
+  padding: 16px;
+}
+
+.total_price {
+  margin-bottom: 8px;
+}
+
+.total_price b {
+  font-size: 2rem;
+  color: rgb(53, 120, 245);
+}
+
+.finish_button {
+  background-color: #ffbe3a;
+  border: 1px solid #ffbe3a;
+  color: white;
+  cursor: pointer;
+  font-weight: bold;
+  padding: 16px 32px;
+}

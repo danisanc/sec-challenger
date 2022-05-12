@@ -1,0 +1,80 @@
+.product {
+  box-shadow: 0px 0px 8px #999999;
+  padding: 16px;
+  position: relative;
+  width: 100%;
+}
+
+.product__image {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 16px;
+}
+
+.product__name {
+  border-left: 8px solid #f7c96d;
+  font-size: 14px;
+  margin-bottom: 16px;
+  padding: 0px 8px;
+}
+
+.product__name p {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.product__quantity {
+  margin-bottom: 16px;
+  display: flex;
+}
+
+.product__quantity button {
+  background-color: rgb(53, 120, 245);
+  border: 1px solid rgb(53, 120, 245);
+  color: white;
+  cursor: pointer;
+  height: 35px;
+  width: 35px;
+}
+
+.product__quantity button:hover {
+  background-color: #150e6f;
+  border: 1px solid #150e6f;
+}
+
+.product__quantity input {
+  flex-grow: 1;
+  text-align: center;
+  font-weight: bold;
+}
+
+.product_price {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-bottom: 16px;
+}
+
+.product_price p b {
+  margin-left: 4px;
+}
+
+.product_price p[data-type="total-price"] b {
+  color: rgb(53, 120, 245);
+}
+
+.product__remove {
+  background-color: rgb(245, 53, 53);
+  border: 1px solid rgb(245, 53, 53);
+  color: white;
+  cursor: pointer;
+  font-weight: bold;
+  height: 35px;
+  width: 100%;
+}
+
+.product__remove:hover {
+  background-color: rgb(121, 16, 16);
+  border: 1px solid rgb(121, 16, 16);
+}

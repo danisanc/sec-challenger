@@ -1,9 +1,12 @@
-import { useState } from "react";
+import { useCallback, useState } from "react";
+import { useDispatch } from "react-redux";
 import Image from "next/image";
+import { toast } from "react-toastify";
 
-import { Item } from "@types";
+import { addItemToCart } from "@store/cart/cartSlice";
 import { formatMoney, formatPercentage } from "@utils/format";
 import { getPercentage } from "@utils/percentage";
+import { Item } from "@types";
 
 import styles from "./product.module.css";
 
@@ -12,6 +15,7 @@ export interface ProductProps {
 }
 
 export const Product = ({ product }: ProductProps) => {
+  const dispatch = useDispatch();
   const [productImage, setProductImage] = useState(product.image);
   const [productSelectedPack, setProductSelectedPack] = useState(1);
 
@@ -29,10 +33,25 @@ export const Product = ({ product }: ProductProps) => {
   );
 
   const discount = formatPercentage(discountPercentage);
-
   const unitPrice = formatMoney(
     product.packs[productSelectedPack].current_price /
       product.packs[productSelectedPack].unities
+  );
+
+  const handleAddItemToCart = useCallback(
+    (dispatch, product, productSelectedPack) => {
+      dispatch(
+        addItemToCart({
+          item: {
+            item: product,
+            pack: productSelectedPack,
+          },
+        })
+      );
+
+      toast.success("Produto adicionado ao carrinho!");
+    },
+    [dispatch, addItemToCart, product, productSelectedPack]
   );
 
   return (
@@ -78,7 +97,7 @@ export const Product = ({ product }: ProductProps) => {
           </ul>
         </div>
 
-        <div className={styles.product__packs_price}>
+        <div className={styles.product__price}>
           <p data-type="old-price">
             De: <b>{oldPrice}</b>
           </p>
@@ -98,7 +117,12 @@ export const Product = ({ product }: ProductProps) => {
       </main>
 
       <footer>
-        <button className={styles.product__add_to_cart}>
+        <button
+          className={styles.product__add_to_cart}
+          onClick={() =>
+            handleAddItemToCart(dispatch, product, productSelectedPack)
+          }
+        >
           Adicionar ao carrinho
         </button>
       </footer>

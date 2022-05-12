@@ -1,9 +1,14 @@
+import { useSelector } from "react-redux";
 import Image from "next/image";
 import Link from "next/link";
+
+import { RootState } from "@store/index";
 
 import styles from "./header.module.css";
 
 export const Header = () => {
+  const cartItems = useSelector((state: RootState) => state.cartReducer.items);
+
   return (
     <header className={styles.header}>
       <div className={styles.container}>
@@ -28,7 +33,7 @@ export const Header = () => {
                 height={20}
               />
 
-              <p>Carrinho (0)</p>
+              <p>Carrinho ({cartItems.length})</p>
             </button>
           </Link>
         </nav>
